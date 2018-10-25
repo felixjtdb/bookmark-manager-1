@@ -10,6 +10,10 @@ I would like to view a list of my bookmarks.
 As an internet user,
 So that I can keep my bookmarks up to date,
 I would like to be able to add new bookmarks.
+
+As an internet user,
+So that I can get rid of bookmarks I don't use anymore,
+I would like to be able to delete bookmarks.
 ```
 
 ## Setup instructions

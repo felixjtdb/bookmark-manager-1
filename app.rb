@@ -1,14 +1,11 @@
 require 'sinatra/base'
 require './lib/bookmark'
+require 'pry'
 
 class BookmarkManager < Sinatra::Base
   enable :method_override
   get '/' do
     erb :index
-  end
-
-  post '/list' do
-    redirect("/bookmarks")
   end
 
   get '/bookmarks' do
@@ -30,5 +27,14 @@ class BookmarkManager < Sinatra::Base
      redirect '/bookmarks'
   end
 
+  get '/bookmarks/:id/update' do
+    @bookmark = Bookmark.find(params[:id])
+    erb(:update)
+  end
+
+  patch '/bookmarks/:id' do
+    Bookmark.update(params[:id], params[:title], params[:url])
+    redirect 'bookmarks'
+  end
   run! if app_file == $0
 end
